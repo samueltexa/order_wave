@@ -37,6 +37,7 @@ flutter_native_splash:
   ios: true
   color: "#5F81E4"
   image: "assets/images/logo.png"
+  duration: 3
 
 
   # The following adds the Cupertino Icons font to your application.
