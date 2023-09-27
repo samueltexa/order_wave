@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'introduction3.dart';
 
-class Introduction2 extends StatelessWidget {
-  const Introduction2({super.key});
+import 'introduction2.dart';
+
+class Introduction3 extends StatelessWidget {
+  const Introduction3({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class Introduction2 extends StatelessWidget {
             if (details.primaryDelta! < 5) {
               Navigator.of(context)
                   .pushReplacement(MaterialPageRoute(builder: (context) {
-                return const Introduction3();
+                return const Introduction2();
               }));
               // Navigate to the home page when dragging to the right
             }
@@ -28,7 +29,7 @@ class Introduction2 extends StatelessWidget {
               ),
               const Center(
                 child: Text(
-                  "MAKE YOUR ORDER",
+                  "MAKE RESERVATIONS",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 25,
@@ -36,22 +37,13 @@ class Introduction2 extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 10,
-              ),
-              const Center(
-                  child: Text(
-                    "Receive your order",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                  )),
-              const SizedBox(
                 height: 40,
               ),
-              const Text("at your doorstep"),
               Center(
                 child: SizedBox(
                   width: 400,
                   height: 300,
-                  child: Image.asset("assets/images/intro2.png"),
+                  child: Image.asset("assets/images/intro3.png"),
                 ),
               ),
               const SizedBox(
@@ -61,8 +53,8 @@ class Introduction2 extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   _buildCircle(isFilled: false), // First circle is filled
-                  _buildCircle(isFilled: true), // Other circles have border
-                  _buildCircle(isFilled: false),
+                  _buildCircle(isFilled: false), // Other circles have border
+                  _buildCircle(isFilled: true),
                 ],
               ),
               const SizedBox(
