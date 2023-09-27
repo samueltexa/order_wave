@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:order_wave/src/features/introduction/terms_of_use.dart';
 
 class IntroductionPage extends StatefulWidget {
   const IntroductionPage({Key? key}) : super(key: key);
@@ -107,7 +108,12 @@ class _IntroductionPageState extends State<IntroductionPage> {
                 ),
                 OutlinedButton(
                   onPressed: () {
-                    // Handle button press for all pages (last or others)
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return const NoticeDialog();
+                      },
+                    );
                   },
                   style: ButtonStyle(
                     padding: MaterialStateProperty.all(
@@ -167,7 +173,7 @@ class IntroductionContent {
   final String title;
   final String description;
   final String image;
-  
+
 // constructor
   IntroductionContent(this.title, this.description, this.image);
 }
