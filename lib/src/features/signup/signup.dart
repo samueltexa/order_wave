@@ -43,6 +43,7 @@ class SignUp extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
+                    height: 50,
                     width: 340,
                     child: TextFormField(
                       decoration: InputDecoration(
@@ -59,6 +60,7 @@ class SignUp extends StatelessWidget {
                   ),
                   const SizedBox(height: 30),
                   SizedBox(
+                    height: 50,
                     width: 340,
                     child: TextFormField(
                       obscureText: true,
@@ -84,7 +86,7 @@ class SignUp extends StatelessWidget {
                       ),
                       padding: MaterialStateProperty.all(
                         const EdgeInsets.symmetric(
-                            vertical: 16, horizontal: 145),
+                            vertical: 10, horizontal: 145),
                       ),
                       backgroundColor: MaterialStateProperty.all(
                         const Color(0xFF5F81E4),
@@ -137,7 +139,7 @@ class SignUp extends StatelessWidget {
                       ),
                       padding: MaterialStateProperty.all(
                         const EdgeInsets.symmetric(
-                            vertical: 10, horizontal: 90),
+                            vertical: 5, horizontal: 90),
                       ),
                       backgroundColor: MaterialStateProperty.all(
                         const Color(0xFF5F81E4),
