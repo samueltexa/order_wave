@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../forgotpassword/forgotpassword.dart';
 
 class Login extends StatelessWidget {
   const Login({Key? key}) : super(key: key);
@@ -44,6 +45,7 @@ class Login extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
+                    height: 50,
                     width: 340, // Set the width as needed
                     child: TextFormField(
                       decoration: InputDecoration(
@@ -60,6 +62,7 @@ class Login extends StatelessWidget {
                   ),
                   const SizedBox(height: 30),
                   SizedBox(
+                    height: 50,
                     width: 340, // Set the width as needed
                     child: TextFormField(
                       obscureText: true,
@@ -85,7 +88,7 @@ class Login extends StatelessWidget {
                       ),
                       padding: MaterialStateProperty.all(
                         const EdgeInsets.symmetric(
-                            vertical: 16, horizontal: 145),
+                            vertical: 10, horizontal: 145),
                       ),
                       backgroundColor: MaterialStateProperty.all(
                         const Color(0xFF5F81E4),
@@ -105,13 +108,18 @@ class Login extends StatelessWidget {
                   const SizedBox(height: 8),
                   GestureDetector(
                     onTap: () {
-                      // functionality
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) {
+                        return const ForgotPassword();
+                      }));
                     },
                     child: const Text(
                       'Forgot Password?',
                       style: TextStyle(
                         color: Colors.white,
                         decoration: TextDecoration.underline,
+                        decorationThickness: 3,
+                        decorationColor: Color(0xFF5F81E4),
                       ),
                     ),
                   ),
@@ -152,7 +160,7 @@ class Login extends StatelessWidget {
                       ),
                       padding: MaterialStateProperty.all(
                         const EdgeInsets.symmetric(
-                            vertical: 10, horizontal: 90),
+                            vertical: 5, horizontal: 90),
                       ),
                       backgroundColor: MaterialStateProperty.all(
                         const Color(0xFF5F81E4),
