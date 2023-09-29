@@ -3,7 +3,6 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:order_wave/src/features/introduction/introduction.dart';
 
 void main() {
-
     runApp(const MyApp());
 }
 
