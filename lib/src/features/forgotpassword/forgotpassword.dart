@@ -16,11 +16,10 @@ class ForgotPassword extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          // Spacer above the container
-          Spacer(),
+          const Spacer(),
           Center(
             child: Container(
-              height: 450,
+              height: 300,
               decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.all(
@@ -39,7 +38,7 @@ class ForgotPassword extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   SizedBox(
                     width: 310,
@@ -56,7 +55,7 @@ class ForgotPassword extends StatelessWidget {
                       style: const TextStyle(color: Colors.white),
                     ),
                   ),
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 20),
                   OutlinedButton(
                     style: ButtonStyle(
                       shape: MaterialStateProperty.all(
@@ -73,7 +72,7 @@ class ForgotPassword extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      // Sign Up functionality
+                      // send functionality
                     },
                     child: const Text(
                       'Send',
@@ -83,17 +82,12 @@ class ForgotPassword extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 16),
-                  // OR with vertical lines
-                  const SizedBox(
-                    height: 20,
-                  ),
                 ],
               ),
             ),
           ),
           // Spacer below the container
-          Spacer(),
+          const Spacer(),
         ],
       ),
     );
