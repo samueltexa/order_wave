@@ -9,8 +9,7 @@ class IntroductionPage extends StatefulWidget {
 }
 
 class _IntroductionPageState extends State<IntroductionPage> {
-  int currentPage = 0; // Variable to track the current page
-
+  int currentPage = 0;
   List<IntroductionContent> contents = [
     IntroductionContent(
       'CONSIDERATE SERVICE',
@@ -44,100 +43,24 @@ class _IntroductionPageState extends State<IntroductionPage> {
             itemCount: contents.length,
             onPageChanged: (page) {
               setState(() {
-                currentPage = page; // Update the current page
+                currentPage = page;
               });
             },
             itemBuilder: (_, i) {
-              return Column(
-                children: <Widget>[
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Center(
-                    child: Text(
-                      contents[i].title,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 25,
-                        color: Color(0xFF5855DC),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Center(
-                    child: Text(
-                      contents[i].description,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 40,
-                  ),
-                  Center(
-                    child: SizedBox(
-                      width: 400,
-                      height: 300,
-                      child: Image.asset(contents[i].image),
-                    ),
-                  ),
-                ],
-              );
+              return _buildPage(contents[i]);
             },
           ),
           Positioned(
-            bottom: 50, // position of the circles and get started
+            bottom: 50,
             left: 0,
             right: 0,
             child: Column(
               children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    for (int i = 0; i < contents.length; i++)
-                      _buildCircle(isFilled: i == currentPage),
-                  ],
-                ),
+                _buildPageIndicators(),
                 const SizedBox(
                   height: 100,
                 ),
-                OutlinedButton(
-                  onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return const NoticeDialog();
-                      },
-                    );
-                  },
-                  style: ButtonStyle(
-                    padding: MaterialStateProperty.all(
-                      const EdgeInsets.symmetric(vertical: 0, horizontal: 100),
-                    ),
-                    backgroundColor: MaterialStateProperty.all(
-                      const Color(0xFF5855DC),
-                    ),
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                    ),
-                    side: MaterialStateProperty.all(BorderSide.none),
-                  ),
-                  child: const Text(
-                    "Get Started",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15,
-                    ),
-                  ),
-                ),
+                _buildGetStartedButton(context),
               ],
             ),
           ),
@@ -146,10 +69,63 @@ class _IntroductionPageState extends State<IntroductionPage> {
     );
   }
 
+  Widget _buildPage(IntroductionContent content) {
+    return Column(
+      children: <Widget>[
+        const SizedBox(
+          height: 20,
+        ),
+        Center(
+          child: Text(
+            content.title,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 25,
+              color: Color(0xFF5855DC),
+            ),
+          ),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        Center(
+          child: Text(
+            content.description,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
+          ),
+        ),
+        const SizedBox(
+          height: 40,
+        ),
+        Center(
+          child: SizedBox(
+            width: 400,
+            height: 300,
+            child: Image.asset(content.image),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildPageIndicators() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        for (int i = 0; i < contents.length; i++)
+          _buildCircle(isFilled: i == currentPage),
+      ],
+    );
+  }
+
   Widget _buildCircle({bool isFilled = false}) {
     Color fillColor = isFilled ? const Color(0xFF5855DC) : Colors.transparent;
     Color borderColor =
-        isFilled ? const Color(0xFF5855DC) : const Color(0xFF5855DC);
+    isFilled ? const Color(0xFF5855DC) : const Color(0xFF5855DC);
     double borderWidth = 1.0;
 
     return Container(
@@ -166,14 +142,47 @@ class _IntroductionPageState extends State<IntroductionPage> {
       margin: const EdgeInsets.symmetric(horizontal: 8.0),
     );
   }
+
+  Widget _buildGetStartedButton(BuildContext context) {
+    return OutlinedButton(
+      onPressed: () {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return const NoticeDialog();
+          },
+        );
+      },
+      style: ButtonStyle(
+        padding: MaterialStateProperty.all(
+          const EdgeInsets.symmetric(vertical: 0, horizontal: 100),
+        ),
+        backgroundColor: MaterialStateProperty.all(
+          const Color(0xFF5855DC),
+        ),
+        shape: MaterialStateProperty.all(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+        ),
+        side: MaterialStateProperty.all(BorderSide.none),
+      ),
+      child: const Text(
+        "Get Started",
+        style: TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          fontSize: 15,
+        ),
+      ),
+    );
+  }
 }
 
-// class
 class IntroductionContent {
   final String title;
   final String description;
   final String image;
 
-// constructor
   IntroductionContent(this.title, this.description, this.image);
 }
