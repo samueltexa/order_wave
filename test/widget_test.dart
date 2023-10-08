@@ -9,11 +9,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:order_wave/main.dart';
+import 'package:order_wave/src/features/introduction/introduction.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const OrderWave());
+    await tester.pumpWidget(const IntroductionPage());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

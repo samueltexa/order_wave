@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:order_wave/src/features/introduction/introduction.dart';
+import 'package:order_wave/themes/app_themes.dart';
 
 void main() {
-  runApp(const MaterialApp(
+  runApp(MaterialApp(
+    theme: appTheme,
     debugShowCheckedModeBanner: false,
-    home: OrderWave(),
+    home: const IntroductionPage(),
   ));
 }
 
-class OrderWave extends StatelessWidget {
-  const OrderWave({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
